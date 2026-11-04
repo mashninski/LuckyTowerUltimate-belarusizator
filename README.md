@@ -42,6 +42,19 @@ Lucky Tower Ultimate\
 | Пасьля абнаўленьня гульні частка тэксту па-ангельску | Гэта новыя радкі. Іх дадасьць наступная вэрсія перакладу. |
 | Пасьля абнаўленьня гульня не запускаецца | Выдалі `winhttp.dll`. Гульня запусьціцца бяз перакладу. |
 | У цябе ўжо ёсьць моды на BepInEx 5 | Скапіюй толькі папку `BepInEx\plugins\BelarusianLocalization\`. |
+| Антывірус лаецца на `winhttp.dll` ці выдаліў яго | Гэта загрузчык BepInEx, на яго часта ілжыва рэагуюць антывірусы. Дадай папку гульні ў выключэньні антывіруса і распакуй архіў нанова. |
+| Steam Deck / Linux: мова не зьявілася | Гл. раздзел «Steam Deck і Linux» ніжэй. |
+
+## Steam Deck і Linux
+
+Пад Proton BepInEx сам не ўключаецца, яму трэба дазволіць загрузку `winhttp.dll`:
+
+1. Распакуй архіў у папку гульні, як апісана вышэй. На Steam Deck гэта зручней зрабіць у рэжыме працоўнага стала: Steam → *Кіраваньне → Прагледзець лякальныя файлы*.
+2. У Steam: правая кнопка на гульні → **Уласьцівасьці → Агульныя → Парамэтры запуску**. Устаў:
+   ```
+   WINEDLLOVERRIDES="winhttp=n,b" %command%
+   ```
+3. Запусьці гульню і выберы **Settings → Other → Language → «Беларуская»**.
 
 ## Як выдаліць
 
@@ -51,12 +64,16 @@ Lucky Tower Ultimate\
 ---
 
 <details>
-<summary><b>Па-руску: как установить</b></summary>
+<summary><b>Па-расейску: как установить</b></summary>
 
 1. Скачайте архив по ссылке **«Спампаваць пераклад»** выше.
 2. В Steam: Библиотека → правой кнопкой по *Lucky Tower Ultimate* → **Управление → Просмотреть локальные файлы**.
 3. Распакуйте всё содержимое архива в эту папку, чтобы `winhttp.dll` и папка `BepInEx` лежали рядом с `Lucky Tower Ultimate.exe`. На вопрос о замене файлов ответьте «Да».
 4. Запустите игру и выберите **Settings → Other → Language → «Беларуская»**.
+
+Если антивирус ругается на `winhttp.dll` или удалил его: это загрузчик BepInEx, на него часто ложно срабатывают антивирусы. Добавьте папку игры в исключения и распакуйте архив заново.
+
+Steam Deck / Linux: в Steam → Свойства → Общие → Параметры запуска впишите `WINEDLLOVERRIDES="winhttp=n,b" %command%`.
 
 Удаление: удалите `winhttp.dll`, `doorstop_config.ini`, `.doorstop_version`, `changelog.txt`, `README_BE.txt`, `README_EN.txt` и папку `BepInEx`. Сохранения не затрагиваются.
 </details>
@@ -68,6 +85,8 @@ Lucky Tower Ultimate\
 2. In Steam: Library → right-click *Lucky Tower Ultimate* → **Manage → Browse local files**.
 3. Extract everything from the archive into that folder, so that `winhttp.dll` and the `BepInEx` folder sit next to `Lucky Tower Ultimate.exe`.
 4. Start the game and choose **Settings → Other → Language → «Беларуская»**.
+
+**Steam Deck / Linux (Proton):** set the launch options to `WINEDLLOVERRIDES="winhttp=n,b" %command%`. **Antivirus:** some antivirus tools falsely flag BepInEx's `winhttp.dll`; add the game folder to exclusions and extract again.
 
 No game files are modified: the translation is loaded at runtime by BepInEx 5 (included), so Steam updates don't remove it. To uninstall, delete `winhttp.dll`, `doorstop_config.ini`, `.doorstop_version`, `changelog.txt`, `README_BE.txt`, `README_EN.txt` and the `BepInEx` folder.
 </details>
